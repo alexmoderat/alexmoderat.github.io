@@ -1,0 +1,19 @@
+name: Deploy Next.js to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Build and export
+        run: npm run build && npm run export
+      - name: Deploy to Pages
+        uses: JamesIves/github-pages-deploy-action@5.0.0
+        with:
+          branch: gh-pages
+          folder: out
