@@ -15,5 +15,5 @@ jobs:
       - name: Deploy to Pages
         uses: JamesIves/github-pages-deploy-action@5.0.0
         with:
-          branch: gh-pages
-          folder: out
+          branch: main
+          folder: /
